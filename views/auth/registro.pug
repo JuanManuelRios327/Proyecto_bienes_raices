@@ -1,18 +1,30 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Registro
-    body 
-        h1 Registro
+extends ../layout/index
 
-        form(action="#")
-            label Nombre: 
-            input(type="text")
+block contenido
+    .py-10
+        h1.text-4xl.my-10.font-extrabold.text-center Bienes Raices
+            span.font-normal SENA
+        h2.text-center.text-2xl.font-extrabold= tituloPagina
 
-            label apellido: 
-            input(type="text")
+        .mt-9.mx-auto.max-w-md
+            .bg-white.py-8.px-4.shadow
+                form.space-y-5(action="#", method="post")
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="name") Nombre
+                        input#name.w-full.px-3.py-2.border.border-gray-300.rounded-mb.placeholder-gray-400(placeholder="Escribe tu Nombre" type="name" name="name")
 
-            label Contraseña: 
-            input(type="password")    
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="email") Email
+                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-mb.placeholder-gray-400(placeholder="Escribe tu email" type="email" name="email")
+                    
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="password") Contraseña
+                        input#password.w-full.px-3.py-2.border.border-gray-300.rounded-mb.placeholder-gray-400(placeholder="Escribe tu contraseña" type="password" name="password")
+
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="repeat-password") Confirmar Contraseña
+                        input#repeat-password.w-full.px-3.py-2.border.border-gray-300.rounded-mb.placeholder-gray-400(placeholder="Escribe nuevamente la contraseña" type="password" name="password")
+                    
+                    div.flex.items-center.justify-center
+                        a.text-gray-500.text-xs(href="/auth/login") ¿Ya tienes cuenta? Ingresa aquí
+                    input(class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 cursor-pointer" type="submit" value="Registrarse")
